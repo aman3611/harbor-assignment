@@ -2,6 +2,6 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY input.txt /app/environment/input.txt
+COPY input.txt /app/input.txt
 
 CMD ["bash"]

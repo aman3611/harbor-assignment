@@ -1,0 +1,15 @@
+[project]
+name = "harbor-assignment"
+version = "0.1.0"
+description = "Harbor task assignment - JSON transform"
+requires-python = ">=3.12"
+dependencies = [
+    "harbor",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["harbor_tasks"]

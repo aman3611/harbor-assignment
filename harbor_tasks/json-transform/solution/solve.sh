@@ -1,10 +1,11 @@
 #!/bin/bash
 
-python3 - <<EOF
+python3 - <<'EOF'
 import json
 
-input_file = "/app/environment/input.txt"
+input_file = "/app/input.txt"
 output_file = "/app/output.json"
+
 
 def age_group(age):
     if age < 18:
@@ -14,17 +15,21 @@ def age_group(age):
     else:
         return "senior"
 
+
 results = []
 
 with open(input_file) as f:
     for line in f:
+        line = line.strip()
+        if not line:
+            continue
         data = json.loads(line)
         data["name"] = data["name"].upper()
         data["age_group"] = age_group(data["age"])
         results.append(data)
 
-with open(output_file,"w") as f:
-    json.dump(results,f,indent=2)
+with open(output_file, "w") as f:
+    json.dump(results, f, indent=2)
 
-print("done")
+print("Done!")
 EOF
